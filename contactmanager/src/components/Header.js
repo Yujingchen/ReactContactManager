@@ -5,7 +5,7 @@ const Header = props => {
   const { branding, test } = props;
   return (
     <div>
-      <h1>
+      <h1 style={HeaderStyle}>
         {branding} {test}
       </h1>
     </div>
@@ -20,4 +20,8 @@ Header.propTypes = {
   branding: PropTypes.string.isRequired
 };
 
+const HeaderStyle = {
+  color: "red",
+  fontSize: "50px"
+};
 export default Header;

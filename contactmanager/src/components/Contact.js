@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./contact.css";
 class Contact extends Component {
   render() {
     const { name, email, phone } = this.props; //destructuring
