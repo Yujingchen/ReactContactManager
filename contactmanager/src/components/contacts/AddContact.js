@@ -45,6 +45,8 @@ class AddContact extends Component {
       errors: {}
     });
     //clean state
+
+    this.props.history.push("/");
   };
   render() {
     const { name, email, phone, errors } = this.state;
