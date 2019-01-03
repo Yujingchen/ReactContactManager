@@ -10,7 +10,7 @@ import { Provider } from "./context";
 import AddContact from "./components/contacts/AddContact";
 import NotFound from "./components/pages/NotFound";
 import Test from "./components/test/test";
-
+import EditContact from "./components/contacts/EditContact";
 class App extends Component {
   render() {
     return (
@@ -23,7 +23,8 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Contacts} />
                 <Route exact path="/contact/add" component={AddContact} />
-                <Route exact path="/about/:id" component={About} />
+                <Route exact path="/contact/edit/:id" component={EditContact} />
+                <Route exact path="/about/" component={About} />
                 <Route exact path="/test" component={Test} />
                 <Route component={NotFound} />
               </Switch>
