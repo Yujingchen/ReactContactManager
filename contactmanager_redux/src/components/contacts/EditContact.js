@@ -30,16 +30,16 @@ class EditContact extends Component {
       return;
     }
 
-    // const updContact = {
-    //   name,
-    //   email,
-    //   phone
-    // };
+    const updContact = {
+      name,
+      email,
+      phone
+    };
 
-    // const { id } = this.props.match.params;
+    const { id } = this.props.match.params;
 
     //// UPDATE CONTACT ////
-
+    this.props.updContact(updContact);
     // Clear State
     this.setState({
       name: "",
