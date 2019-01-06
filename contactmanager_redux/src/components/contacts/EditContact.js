@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import TextInputGroup from "../layout/TextInputGroup";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getContact } from "../../actions/contactActions";
+import { getContact, updateContact } from "../../actions/contactActions";
 class EditContact extends Component {
   state = {
     name: "",
@@ -45,17 +45,17 @@ class EditContact extends Component {
       this.setState({ errors: { phone: "Phone is required" } });
       return;
     }
+    const { id } = this.props.match.params;
 
-    // const updContact = {
-    //   name,
-    //   email,
-    //   phone
-    // };
-
-    // const { id } = this.props.match.params;
+    const updateContact = {
+      id,
+      name,
+      email,
+      phone
+    };
 
     //// UPDATE CONTACT ////
-    // this.props.updContact(updContact);
+    this.props.updateContact(updateContact);
     // Clear State
     this.setState({
       name: "",
@@ -124,5 +124,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getContact }
+  { getContact, updateContact }
 )(EditContact);

@@ -2,7 +2,7 @@ import {
   GET_CONTACTS,
   DELETE_CONTACT,
   ADD_CONTACT,
-  // UPDATE_CONTACT,
+  UPDATE_CONTACT,
   GET_CONTACT
 } from "./types";
 import axios from "axios";
@@ -52,13 +52,14 @@ export const addContact = contact => async dispatch => {
   });
 };
 
-// export const editContact = contact => async dispatch => {
-//   const response = await axios.post(
-//     `https://jsonplaceholder.typicode.com/users`
-//   );
+export const updateContact = contact => async dispatch => {
+  const response = await axios.put(
+    `https://jsonplaceholder.typicode.com/users/${contact.id}`,
+    contact
+  );
 
-//   dispatch({
-//     type: UPDATE_CONTACT,
-//     payload: contact
-//   });
-// };
+  dispatch({
+    type: UPDATE_CONTACT,
+    payload: response.data
+  });
+};

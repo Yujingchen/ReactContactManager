@@ -20,7 +20,14 @@ export default function(state = initialState, action) {
       return { ...state, contact: action.payload };
 
     case UPDATE_CONTACT:
-      return { ...state, contact: action.payload };
+      return {
+        ...state,
+        contacts: state.contacts.map(contact =>
+          contact.id === action.payload.id
+            ? (contact = action.payload)
+            : contact
+        )
+      };
 
     case DELETE_CONTACT:
       return {
